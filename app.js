@@ -17,6 +17,14 @@ app.get('/', (req, res) => {
     res.send('<h2>Please use /api/customers or /api/invoices</h2>');
 });
 
+// Route Files
+const customers = require('./routes/customers');
+const invoices = require('./routes/invoices');
+
+// Paths
+app.use('/api/customers', customers);
+app.use('/api/invoices', invoices);
+
 // Run Server
 app.listen(port , () => {
     console.log('Server run on localhost:' + port);
