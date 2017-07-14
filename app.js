@@ -3,6 +3,11 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+// Mongoose Connect
+mongoose.connect('mongodb://localhost/invocer');
+const db = mongoose.connection;
+
+
 const app = express();
 const port = 3000;
 
