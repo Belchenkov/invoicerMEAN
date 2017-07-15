@@ -1,0 +1,21 @@
+nav.navbar {
+  background-color: #e64a19;
+
+}
+
+li.current {
+  background-color: #ff5722;  
+}
+
+nav.navbar a {
+  color: #fff;
+  font-size: 16px;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+}
+
+i.fa {
+  margin: 0 10px;
+}
