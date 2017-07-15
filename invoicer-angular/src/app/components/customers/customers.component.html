@@ -1,3 +1,24 @@
-<p>
-  customers works!
-</p>
+<h2 class="page-header">Клиенты</h2>
+
+<div class="customers">
+  <table class="table">
+    <tr>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Email</th>
+      <th>Телефон</th>
+      <th>Управление</th>
+    </tr>
+    <tr *ngFor="let customer of customers">
+      <td>{{ customer.last_name }}</td>
+      <td>{{ customer.first_name }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>
+        <a href="" class="btn btn-success btn-sm">Подробнее</a>
+        <a href="" class="btn btn-warning btn-sm">Редактировать</a>
+        <a href="" class="btn btn-danger btn-sm">Удалить</a>
+      </td>
+    </tr>
+  </table>
+</div>

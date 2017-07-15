@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=cyrillic');
+
+body {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 18px;
+    background: #fff url('./assets/vintage-leaves.png');
+}
