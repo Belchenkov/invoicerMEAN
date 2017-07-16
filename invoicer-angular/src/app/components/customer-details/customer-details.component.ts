@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../../services/customer.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 
 @Component({
   selector: 'app-customer-details',
@@ -7,9 +10,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+  customer: Customer;
+  invoices: Ivoice[];
+
+  constructor( 
+               private customerService: CustomerService,
+               private router: Router,
+               private route: ActivatedRoute
+              ) { }
 
   ngOnInit() {
+
+    this.id = this.route.snapshot.params['id'];
+
+    this.customerService.getCustomer(this.id).subscribe(customer => {
+      this.customer = customer;
+    });
   }
 
+}
+
+export interface Customer {
+    id: string;
+    first_name: string;
+    last_name: string;
+    company: string;
+    email: string;
+    phone: string;
+    address: {
+      street: string;
+      city: string;
+      state: string;
+      zip: string;
+    }
+}
+
+export interface Ivoice {
+  _id: string;
+  customer: string;
+  service: string;
+  status: string;
+  created_at: Date;
 }

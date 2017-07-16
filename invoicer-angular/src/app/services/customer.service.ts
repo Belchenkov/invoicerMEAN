@@ -21,4 +21,9 @@ export class CustomerService {
         .map(res => res.json());
   }
 
+  getCustomer(id) {
+    return this.http.get('http://localhost:3000/api/customers/' + id)
+      .map(res => res.json());
+  }
+
 }
