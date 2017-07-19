@@ -34,7 +34,7 @@ module.exports.getInvoices = (callback, limit) => {
 
 // Get Invoice
 module.exports.getInvoiceById = (customer_id, callback, limit) => {
-    Invoice.findById(id, callback);
+    Invoice.findById(customer_id, callback);
 };
 
 // Get Customer Invoices

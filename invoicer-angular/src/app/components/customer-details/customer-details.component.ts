@@ -12,7 +12,7 @@ export class CustomerDetailsComponent implements OnInit {
 
   id: string;
   customer: Customer;
-  invoices: Ivoice[];
+  invoices: Invoice[];
 
   constructor( 
                private customerService: CustomerService,
@@ -46,7 +46,7 @@ export interface Customer {
     }
 }
 
-export interface Ivoice {
+export interface Invoice {
   _id: string;
   customer: string;
   service: string;
