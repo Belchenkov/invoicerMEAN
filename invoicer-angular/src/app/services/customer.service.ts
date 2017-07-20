@@ -13,6 +13,11 @@ export class CustomerService {
       .map(res => res.json());
   }
 
+  getInvoices(customer_id) {
+    return this.http.get('http://localhost:3000/api/invoices/customer/' + customer_id)
+      .map(res => res.json());
+  }
+
   saveCustomer(customer) {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -36,6 +41,19 @@ export class CustomerService {
 
   deleteCustomer(id) {
     return this.http.delete('http://localhost:3000/api/customers/' + id)
+      .map(res => res.json());
+  }
+
+  markPaid(id, invoice) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put('http://localhost:3000/api/invoices/' + id, invoice, {headers: headers})
+      .map(res => res.json());
+  }
+
+  deleteInvoice(id) {
+    return this.http.delete('http://localhost:3000/api/invoices/' + id)
       .map(res => res.json());
   }
 }

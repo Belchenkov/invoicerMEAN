@@ -14,7 +14,7 @@ export class CustomerDetailsComponent implements OnInit {
   customer: Customer;
   invoices: Invoice[];
 
-  constructor( 
+  constructor(
                private customerService: CustomerService,
                private router: Router,
                private route: ActivatedRoute
@@ -26,6 +26,25 @@ export class CustomerDetailsComponent implements OnInit {
 
     this.customerService.getCustomer(this.id).subscribe(customer => {
       this.customer = customer;
+    });
+
+    this.customerService.getInvoices(this.id).subscribe(invoices => {
+      this.invoices = invoices;
+    });
+
+  }
+
+  markPaid(id, invoice) {
+    invoice.status = 'paid';
+
+    this.customerService.markPaid(id, invoice).subscribe(invoice => {
+      invoice.status = 'paid';
+    });
+  }
+
+  onDeleteClick(id){
+    this.customerService.deleteInvoice(id).subscribe(invoice => {
+      this.router.navigate(['/customer/'+this.id]);
     });
   }
 
