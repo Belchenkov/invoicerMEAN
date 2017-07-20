@@ -1,3 +1,25 @@
-<p>
-  add-invoice works!
-</p>
+<h1 class="page-header bg-primary alert text-center">Выставить счет</h1>
+<form (submit)="onAddSubmit()" class="addInvoiceForm">
+  <div class="form-group">
+    <label>Услуга</label>
+    <input type="text" class="form-control" [(ngModel)]="service" name="service" placeholder="Вид услуги ...">
+  </div>
+  <div class="form-group">
+    <label>Цена</label>
+    <input type="text" class="form-control" [(ngModel)]="price" name="price" placeholder="Введите цену ...">
+  </div>
+  <div class="form-group">
+    <label>Статус платежа</label>
+    <select class="form-control" [(ngModel)]="status" name="status">
+      <option selected value="unpaid">Неоплачено</option>
+      <option value="paid">Оплачено</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Оплатить до</label>
+    <input type="date" class="form-control" [(ngModel)]="due" name="due" placeholder="Дата ...">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Добавить</button>
+  </div>
+</form>

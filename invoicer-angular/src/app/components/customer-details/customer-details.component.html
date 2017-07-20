@@ -17,7 +17,9 @@
     <li class="list-group-item"><strong>Индекс: </strong>{{customer.address.zip}}</li>
   </ul>
 
-  <h4 class="page-header alert alert-danger">Счета</h4>
+  <h4 class="page-header alert alert-danger">Счета
+    <a routerLink="/invoice/add/{{ customer._id}}" class="pull-right btn btn-default btn-sm">Выставить счет</a>
+  </h4>
 
   <div class="invoices">
     <table class="table">
